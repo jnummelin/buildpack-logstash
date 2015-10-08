@@ -26,7 +26,7 @@ tar -xzf $CACHE_DIR/logstash-1.4.2.tar.gz -C $BUILD_DIR
 echo "...done."
 
 echo "Setting sqs MD5 checks to false - workaround for issue on heroku sqs"
-sed -i "s/true,/false,/" $BUILD_DIR/logstash/vendor/bundle/jruby/1.9/gems/aws-sdk-v1-1.64.0/lib/aws/sqs/config.rb
+sed -i "s/true,/false,/" $BUILD_DIR/vendor/bundle/jruby/1.9/gems/aws-sdk-v1-1.64.0/lib/aws/sqs/config.rb
 echo "...done."
 
 
