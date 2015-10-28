@@ -12,8 +12,9 @@ mkdir -p $CACHE_DIR
 
 LOGSTASH_URL=https://s3-eu-west-1.amazonaws.com/com.ft.logstash-custom-poc/logstash-custom-prune-jsqs-ft-1.5.4.tar.gz
 
+echo $CACHE_DIR
 
-if [[ -f "$CACHE_DIR/logstash-custom-prune-jsqs-ft-1.5.4.tar.gz" ]]; then
+if [[ -f "$CACHE_DIR/lllogstash-custom-prune-jsqs-ft-1.5.4.tar.gz" ]]; then
     echo "Logstash package already detected in cache, skipping download."
 else
     echo "Downloading Logstash into $CACHE_DIR ..."
