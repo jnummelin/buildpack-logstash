@@ -26,7 +26,7 @@ tar -xzf $CACHE_DIR/logstash-custom-ft-1.5.4.tar.gz -C $BUILD_DIR
 echo "...done."
 
 echo "Installing Logstash JSQS plugin ..."
-tar -xzf $BUILD_DIR/logstash-1.5.4/bin/plugin install logstash-input-jsqs
+$BUILD_DIR/logstash-1.5.4/bin/plugin install logstash-input-jsqs
 echo "...done."
 
 echo "Setting sqs MD5 checks to false - workaround for issue on heroku sqs"
