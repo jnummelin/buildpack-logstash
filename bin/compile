@@ -22,7 +22,7 @@ else
 fi
 
 echo "Unpacking Logstash..."
-tar -xzf $CACHE_DIR/logstash-custom-ft-1.5.4.tar.gz -C $BUILD_DIR
+tar -xzf $CACHE_DIR/logstash-custom-prune-jsqs-ft-1.5.4.tar.gz -C $BUILD_DIR
 echo "...done."
 
 echo "Setting sqs MD5 checks to false - workaround for issue on heroku sqs"
