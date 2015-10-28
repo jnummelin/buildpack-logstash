@@ -10,7 +10,7 @@ ENV_DIR=$3
 
 mkdir -p $CACHE_DIR
 
-LOGSTASH_URL=https://s3-eu-west-1.amazonaws.com/com.ft.logstash-custom-poc/logstash-custom-ft-1.5.4.tar.gz
+LOGSTASH_URL=https://s3-eu-west-1.amazonaws.com/com.ft.logstash-custom-poc/logstash-custom-prune-jsqs-ft-1.5.4.tar.gz
 
 
 if [[ -f "$CACHE_DIR/logstash-custom-prune-jsqs-ft-1.5.4.tar.gz" ]]; then
