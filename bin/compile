@@ -12,20 +12,18 @@ mkdir -p $CACHE_DIR
 
 LOGSTASH_URL=https://s3-eu-west-1.amazonaws.com/com.ft.logstash-custom-poc/logstash-custom-prune-jsqs-env-cred-amazon-es-kinesis-ft-5.4.0.tar.gz
 
-if [[ -f "$CACHE_DIR/logstash-custom-prune-jsqs-env-cred-amazon-es-kinesis-ft-5.4.0.tar.gz" ]]; then
-    echo "Logstash package already detected in cache, skipping download."
-else
-    echo "Downloading Logstash into $CACHE_DIR ..."
-    curl --silent --location $LOGSTASH_URL -o $CACHE_DIR/logstash-custom-prune-jsqs-env-cred-amazon-es-kinesis-ft-5.4.0.tar.gz
-    echo "...done."
-fi
+
+echo "Downloading Logstash into $CACHE_DIR ..."
+curl --silent --location $LOGSTASH_URL -o $CACHE_DIR/logstash-custom-prune-jsqs-env-cred-amazon-es-kinesis-ft-5.4.0.tar.gz
+echo "...done."
+
 
 echo "Unpacking Logstash..."
+ls -al $CACHE_DIR
 tar -xzf $CACHE_DIR/logstash-custom-prune-jsqs-env-cred-amazon-es-kinesis-ft-5.4.0.tar.gz -C $BUILD_DIR &>/dev/null
 echo "...done."
 
 echo "Setting sqs MD5 checks to false - workaround for issue on heroku sqs"
-ls -al $BUILD_DIR
 sed -i "s/true,/false,/" $BUILD_DIR/logstash-5.4.0/vendor/bundle/jruby/1.9/gems/aws-sdk-v1-1.66.0/lib/aws/sqs/config.rb
 echo "...done."
 
