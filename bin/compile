@@ -9,6 +9,8 @@ CACHE_DIR=$2
 ENV_DIR=$3
 
 mkdir -p $CACHE_DIR
+echo  "checking $BUILD_DIR"
+ls $BUILD_DIR/
 rm -rf $BUILD_DIR/*
 
 LOGSTASH_URL=https://s3-eu-west-1.amazonaws.com/com.ft.logstash-custom-poc/logstash-custom-prune-jsqs-env-cred-amazon-es-kinesis-ft-5.4.0.tar.gz
