@@ -1,4 +1,5 @@
 #!/bin/bash
+# assumes folders 'amazon_es', 'jsqs' already exists 
 
 LOGSTASH_VERSION="logstash-5.0.0"
 REMOTE_LOGSTASH_ZIP="https://artifacts.elastic.co/downloads/logstash/$LOGSTASH_VERSION.zip"
@@ -13,7 +14,7 @@ if [ ! -e "$LOCAL_LOGSTASH_DIR" ]; then
   curl -O https://artifacts.elastic.co/downloads/logstash/logstash-5.0.0.zip
   unzip $LOGSTASH_VERSION.zip
 else
-	echo "Not installing $LOCAL_LOGSTASH_DIR because it alreadyexists"
+	echo "Not installing $LOCAL_LOGSTASH_DIR because it already exists"
 fi
 
 # Install Filter prune logstash plugin
