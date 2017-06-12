@@ -1,11 +1,10 @@
 #!/bin/bash
-# assumes folders 'amazon_es', 'jsqs' already exists 
+# assumes folders 'amazon_es', 'jsqs' already exists
 
 LOGSTASH_VERSION="logstash-5.0.0"
 REMOTE_LOGSTASH_ZIP="https://artifacts.elastic.co/downloads/logstash/$LOGSTASH_VERSION.zip"
 LOCAL_LOGSTASH_DIR="$HOME/dev"
 LOGSTASH_INSTALL_DIR="$HOME/logstash/$LOGSTASH_VERSION"
-
 
 if [ ! -e "$LOCAL_LOGSTASH_DIR" ]; then
 	mkdir -p "$LOCAL_LOGSTASH_DIR"
