@@ -1,7 +1,7 @@
 #!/bin/bash
 # bin/compile <build-dir> <cache-dir> <env-dir>
 
-echo "_Compiling_ Logstash package :)"
+echo "_Compiling_ Logstash package"
 
 # parse args
 BUILD_DIR=$1
@@ -10,19 +10,22 @@ ENV_DIR=$3
 
 mkdir -p $CACHE_DIR
 
-LOGSTASH_URL=https://download.elasticsearch.org/logstash/logstash/logstash-1.4.2.tar.gz
+LOGSTASH_URL=https://s3-eu-west-1.amazonaws.com/com.ft.logstash-custom-poc/logstash-custom-prune-jsqs-env-cred-amazon-es-kinesis-ft-5.4.0.tar.gz
 
-
-if [[ -f "$CACHE_DIR/logstash-1.4.2.tar.gz" ]]; then
+if [[ -f "$CACHE_DIR/logstash-custom-prune-jsqs-env-cred-amazon-es-kinesis-ft-5.4.0.tar.gz" ]]; then
     echo "Logstash package already detected in cache, skipping download."
 else
     echo "Downloading Logstash into $CACHE_DIR ..."
-    curl --silent --location $LOGSTASH_URL -o $CACHE_DIR/logstash-1.4.2.tar.gz
+    curl --silent --location $LOGSTASH_URL -o $CACHE_DIR/logstash-custom-prune-jsqs-env-cred-amazon-es-kinesis-ft-5.4.0.tar.gz
     echo "...done."
 fi
 
 echo "Unpacking Logstash..."
-tar -xzf $CACHE_DIR/logstash-1.4.2.tar.gz -C $BUILD_DIR
+tar -xzf $CACHE_DIR/logstash-custom-prune-jsqs-env-cred-amazon-es-kinesis-ft-5.4.0.tar.gz -C $BUILD_DIR &>/dev/null
+echo "...done."
+
+echo "Setting sqs MD5 checks to false - workaround for issue on heroku sqs"
+sed -i "s/true,/false,/" $BUILD_DIR/logstash-5.4.0/vendor/bundle/jruby/1.9/gems/aws-sdk-v1-1.66.0/lib/aws/sqs/config.rb
 echo "...done."
 
 
