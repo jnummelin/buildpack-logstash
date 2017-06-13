@@ -8,13 +8,14 @@ LOGSTASH_INSTALL_DIR="$HOME/logstash/$LOGSTASH_VERSION"
 
 if [ ! -e "$LOCAL_LOGSTASH_DIR" ]; then
 	mkdir -p "$LOCAL_LOGSTASH_DIR"
-  cd $LOCAL_LOGSTASH_DIR
-	echo "Installing $REMOTE_LOGSTASH_ZIP to $LOCAL_LOGSTASH_DIR"
-  curl -O https://artifacts.elastic.co/downloads/logstash/logstash-5.0.0.zip
-  unzip $LOGSTASH_VERSION.zip
 else
 	echo "Not installing $LOCAL_LOGSTASH_DIR because it already exists"
 fi
+
+cd $LOCAL_LOGSTASH_DIR
+echo "Installing $REMOTE_LOGSTASH_ZIP to $LOCAL_LOGSTASH_DIR"
+curl -O https://artifacts.elastic.co/downloads/logstash/logstash-5.0.0.zip
+unzip $LOGSTASH_VERSION.zip
 
 # Install Filter prune logstash plugin
 $LOCAL_LOGSTASH_DIR/$LOGSTASH_VERSION/bin/logstash-plugin install logstash-filter-prune
