@@ -7,6 +7,8 @@ ENV amazon_es_repo="https://github.com/awslabs/logstash-output-amazon_es.git"
 ENV amazon_es_local="$HOME/dev/amazon_es"
 ENV jsqs_repo="https://github.com/JamieCressey/logstash-input-jsqs"
 ENV jsqs_local="$HOME/dev/jsqs"
+ENV test_directory=""
+ENV test_file=""
 
 RUN apt-get update && \
     apt-get upgrade -y && \
