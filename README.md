@@ -1,4 +1,32 @@
 buildpack-logstash
 ==================
 
-Buildpack to grab logstash
+# FT NAR LANTERN - Buildpack to grab logstash workflow
+
+Steps taken to automate the bundle of buildpack-logstash
+
+The detailed process steps below describes expected workflow.
+
+
+## Prerequisites
+1. **Setup environment variables for Dockerfile** amazon_es_local, jsqs_local, project_directory, test_file
+
+## Process
+1. Build image - image is created with logstash bundled with plugins and rspec
+2. Create container - from the image build, create a container by running the image
+3. Copy files - make a copy of the container files and store locally
+
+## Detailed Process Steps
+
+### 1. Build docker image for buildpack logstash
+```
+./build.sh
+```
+### 2. Build a container from the created container
+```
+docker run -i -t ubuntu:15.04 /bin/bash
+```
+### 3. Copy logstash files from container to local machine.
+```
+docker cp <containerId>:/file/path/within/container /host/path/target
+```

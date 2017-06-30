@@ -7,8 +7,8 @@ ENV amazon_es_repo="https://github.com/awslabs/logstash-output-amazon_es.git"
 ENV amazon_es_local="$HOME/dev/amazon_es"
 ENV jsqs_repo="https://github.com/JamieCressey/logstash-input-jsqs"
 ENV jsqs_local="$HOME/dev/jsqs"
-ENV test_directory=""
-ENV test_file=""
+ENV project_directory
+ENV test_file
 
 RUN apt-get update && \
     apt-get upgrade -y && \
@@ -45,4 +45,11 @@ RUN bin/logstash-plugin install logstash-input-jsqs
 # install rspec
 RUN bin/logstash-plugin install --development
 
-CMD ["/logstash/bin/rspec", "/logstash/${test_directory}/${test_file}"]
+# example copy test scripts from local to container
+#COPY /pattern /etc/logstash/pattern
+#COPY /filter ${project_directory}/filter
+#COPY /test ${project_directory}/test
+#COPY /${test_file} ${project_directory}
+
+# example execute test. uncomment to run
+#CMD ["/logstash/bin/rspec", "/logstash/${project_directory}/${test_file}"]
