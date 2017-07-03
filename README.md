@@ -20,13 +20,17 @@ The detailed process steps below describes expected workflow.
 
 ### 1. Build docker image for buildpack logstash
 ```
-./build.sh
+$ ./build.sh
 ```
-### 2. Build a container from the created container
+### 2. Build a container from the created image
 ```
-docker run -i -t ubuntu:15.04 /bin/bash
+$ docker run -i -t ubuntu:15.04 /bin/bash
 ```
 ### 3. Copy logstash files from container to local machine.
 ```
-docker cp <containerId>:/file/path/within/container /host/path/target
+i) Get container id by opening another terminal and running
+$ docker ps
+
+ii)
+$ docker cp <containerId>:/file/path/within/container /host/path/target
 ```
