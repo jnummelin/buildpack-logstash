@@ -32,5 +32,12 @@ i) Get container id by opening another terminal and running
 $ docker ps
 
 ii)
-$ docker cp <containerId>:/file/path/within/container /host/path/target
+$ docker cp <containerId>:/logstash /host/path/target
 ```
+
+### 4. Optionally zip folder
+```
+$ tar -cvzf logstash.tar.gz logstash
+```
+
+### 5. Optionally upload to s3
