@@ -24,7 +24,7 @@ $ ./build.sh
 ```
 ### 2. Build a container from the created image
 ```
-$ docker run -i -t ubuntu:15.04 /bin/bash
+$ docker run -i -t addplugins:dockerfile /bin/bash
 ```
 ### 3. Copy logstash files from container to local machine.
 ```
